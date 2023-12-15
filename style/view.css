@@ -1,0 +1,184 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: linear-gradient(rgba(48, 48, 48, 0.491), rgba(255, 255, 255, 0.508)),url('../image/office.jpg') !important; 
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Style the navigation menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+    align-items: center; /* Center links horizontally */
+}
+
+nav li {
+    margin: 5px 0;
+}
+
+/* Style the links */
+nav a {
+    text-decoration: none;
+    color: #50c878;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+/* Change link color on hover */
+nav a:hover {
+    color: #224c30;
+}
+
+
+/* Center the content in the container */
+#table-container {
+    width: 500px;
+    margin: auto;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #eaeaea;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+
+/* Style the table */
+#data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+/* Style table headers */
+#data-table th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    font-weight: bold;
+}
+
+/* Style table rows */
+#data-table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* Highlight even rows */
+#data-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.login-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login-button button {
+    padding: 10px 20px;
+    background-color: #50c878;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button button:hover {
+    background-color: #224c30;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+select{
+    padding: 10px;
+}
+
+/* .modal div form{
+    display: flex !important;
+    background-color: red;
+    flex-direction: column;
+    Width: 33%;
+    margin: auto;
+    padding: 20px;
+}
+
+.modal div form button{
+    background-color: green;
+    color: white;
+    border-radius: 4px;
+    border: 20px;
+} */
+
+.files{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.files .card{
+    background-color: azure;
+    margin: 20px;
+    padding: 20px;
+    width: 28%;
+}
+
+.files .card form{
+    display: flex;
+    flex-direction: column;
+}
+
+.files .card form textarea{
+    outline: none;
+    border: none;
+}
+.files .card form select{
+    outline: none;
+    border: none;
+}
+
+.files .card form button{
+    outline: none;
+    border: none;
+    padding: 20px;
+    background-color: rgb(39, 52, 39);
+    color: white;
+}
+
+.files .card form button:hover{
+    outline: none;
+    border: none;
+    padding: 20px;
+    background-color: green;
+    cursor: pointer;
+}
+
+h4{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
