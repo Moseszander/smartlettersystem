@@ -34,7 +34,7 @@
                 <div class="feature">
                     <h2>Automated Assignment</h2>
                     <p style="color: #636363;">
-                        Assign letters to the appropriate departments or individuals based on content analysis.
+                        Assign letters to the appropriate levels or individuals based on content analysis.
                     </p>
                 </div>
                 <div class="feature">

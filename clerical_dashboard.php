@@ -37,7 +37,7 @@ if (!isset($_SESSION['email'])) {
                 </div>
                 <div class="feature">
                     <h2>Automated Assignment</h2>
-                    <p>Assign letters to the appropriate departments or individuals based on content analysis.</p>
+                    <p>Assign letters to the appropriate levels or individuals based on content analysis.</p>
                 </div>
                 <div class="feature">
                     <h2>Real-time Notifications</h2>

@@ -3,7 +3,7 @@
 
 class Recommendation{
     public $documents;
-    public $departments;
+    public $levels;
     public $department_members;
 
     public static function getAllDocuments($documents){

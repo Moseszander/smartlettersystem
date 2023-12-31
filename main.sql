@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS departments (
+CREATE TABLE IF NOT EXISTS levels (
     id INT AUTO_INCREMENT,
     name varchar(255) not null,
     post varchar(255) not null,
@@ -16,7 +16,7 @@ create table if not exists staffs (
     created_at timestamp not null default now(),
 
     PRIMARY KEY (id),
-    FOREIGN KEY (department_id) references departments(id)
+    FOREIGN KEY (department_id) references levels(id)
 );
 
 create table if not exists uploaded_docs (
