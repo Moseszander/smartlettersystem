@@ -45,13 +45,13 @@ if (isset($_POST['upload'])) {
     }
 }
 
-// Fetch levels from the 'levels' table
-$levels = [];
-$selectlevelsQuery = "SELECT name FROM levels";
-$levelsResult = mysqli_query($con, $selectlevelsQuery);
-if ($levelsResult && mysqli_num_rows($levelsResult) > 0) {
-    while ($row = mysqli_fetch_assoc($levelsResult)) {
-        $levels[] = $row['name'];
+// Fetch departments from the 'departments' table
+$departments = [];
+$selectDepartmentsQuery = "SELECT name FROM departments";
+$departmentsResult = mysqli_query($con, $selectDepartmentsQuery);
+if ($departmentsResult && mysqli_num_rows($departmentsResult) > 0) {
+    while ($row = mysqli_fetch_assoc($departmentsResult)) {
+        $departments[] = $row['name'];
     }
 }
 
@@ -121,7 +121,7 @@ mysqli_close($con);
                             <input type="hidden" name="file_path" value="<?php echo $document['file']; ?>">
                             <select name="selected_department">
                                 <option value="">Select a Department</option>
-                                <?php foreach ($levels as $dept) : ?>
+                                <?php foreach ($departments as $dept) : ?>
                                     <option value="<?php echo $dept; ?>"><?php echo $dept; ?></option>
                                 <?php endforeach; ?>
                             </select>
