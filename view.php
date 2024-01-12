@@ -46,16 +46,33 @@ $staff = new Staff();
                             <h4>Assign File </h4>
                             <label for="">Add Note</label>
                                 <textarea name="message" id="" cols="30" rows="10" placeholder="Add Something"></textarea>
+                                <label>Select Department</label>
+                                <select name="assign"# id="department">
+                                    <?php
+                                        $myinfo = $staff->getStaffsWhoAreStaff()
+                                    ?>
+                                    <option value="">Select Department</option>
+                                    <?php
+                                    // while ($myrow = mysqli_fetch_assoc($myinfo)){
+                                    //     echo "<option value=".$myrow['id'].">".$myrow['name']."</option>";
+                                    // }
+                                    ?>
+                                    <option value="1">IT</option>
+                                    <option value="2">HR</option>
+                                    <option value="3">FINANCE</option>
+                                </select>
+                                <!-- <div id="result"></div> -->
                                 <label>Select Staff</label>
-                                <select name="assign">
+                                <select name="assign" id="result">
                                     <?php
                                         $myinfo = $staff->getStaffsWhoAreStaff()
                                     ?>
                                     <option value="">Select Personnel</option>
+                                    <!-- <div id="result"></div> -->
                                     <?php
-                                    while ($myrow = mysqli_fetch_assoc($myinfo)){
-                                        echo "<option value=".$myrow['id'].">".$myrow['name']."</option>";
-                                    }
+                                    // while ($myrow = mysqli_fetch_assoc($myinfo)){
+                                    //     echo "<option value=".$myrow['id'].">".$myrow['name']."</option>";
+                                    // }
                                     ?>
                                 </select>
                                 <button type="submit" class="btn btn-primary" name="submit">Submit</button>
@@ -72,7 +89,8 @@ $staff = new Staff();
 
         ?>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="departmentstaff.js"></script>
     <script>
         // $(document).ready(function(){
         //     $(".modal").click(function(){

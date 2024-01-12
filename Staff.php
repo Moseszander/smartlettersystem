@@ -31,7 +31,16 @@ class Staff{
             return false;
         }
     }
+    public function getDepartments(){
+        $sql = "SELECT * FROM department";
+        $result = mysqli_query($this->conn, $sql);
 
+        if (mysqli_num_rows($result) > 0){
+            return $result;
+        } else {
+            return false;
+        }
+    }
 }
 
 ?>

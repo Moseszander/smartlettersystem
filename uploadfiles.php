@@ -1,6 +1,8 @@
 <?php
     session_start();
     include_once "./connection.php";
+    require_once "../smartlettersystem/Staff.php";
+    $staff = new Staff();
 
     // Check if user is logged in
     if (!isset($_SESSION['email'])) {
@@ -74,7 +76,16 @@
             <input type="text" id="source" name="source" required><br>
 
             <label for="department">Department:</label>
-            <input type="number" id="department" name="department" required><br>
+            <select name="department" id="">
+                <option value="">select department</option>
+                <?php
+                 $myinfo = $staff->getDepartments();
+                 while ($myrow = mysqli_fetch_assoc($myinfo)){
+                         echo "<option value=".$myrow['department_id'].">".$myrow['name']."</option>";
+                  }
+                ?>
+            </select>
+        
 
             <label for="datereceived">Date Received:</label>
             <input type="datetime-local" id="datereceived" name="datereceived" required><br>
@@ -106,7 +117,7 @@
         $file_destination = uploadImage($file);
 
         if ($file_destination != "Your file is too big" && $file_destination != "There was an error uploading your file" && $file_destination != "You cannot upload files of this type") {
-            $sql = "INSERT INTO uploaded_docs (`title`, `source_person`, `department`, `received_at`, `file_path`) VALUES (?, ?, ?, ?, ?)";
+            $sql = "INSERT INTO uploaded_docs (`title`, `source_person`, `department_id`, `received_at`, `file_path`) VALUES (?, ?, ?, ?, ?)";
 
             if ($stmt = $link -> prepare($sql)){
                 $stmt -> bind_param('sssss', $title, $source_person, $department, $received_at, $file_destination);

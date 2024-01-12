@@ -29,13 +29,13 @@ function get_user_id_by_email($email){
 
 
 
-if($stmt = $link -> prepare('SELECT `name`, `password`,`department_id` FROM `staffs` WHERE `email` = ?')){
+if($stmt = $link -> prepare('SELECT `name`, `password`,`level_id` FROM `staffs` WHERE `email` = ?')){
     $stmt -> bind_param('s', $_POST['email']);
     $stmt -> execute();
     $stmt -> store_result();
 
     if($stmt -> num_rows > 0){
-      $stmt -> bind_result($name, $password,$deparyment_id);
+      $stmt -> bind_result($name, $password,$level_id);
       $stmt -> fetch();
 
       // echo $firstname.$id_number.$password;
@@ -46,7 +46,7 @@ if($stmt = $link -> prepare('SELECT `name`, `password`,`department_id` FROM `sta
         session_regenerate_id();
 
         $_SESSION['loggedin'] = TRUE;
-        $_SESSION['department_id'] = $deparyment_id;
+        $_SESSION['level_id'] = $level_id;
         $_SESSION['name'] = $name;
         $_SESSION['email'] = $_POST['email'];
         $_SESSION['id'] = get_user_id_by_email($_POST['email']);
@@ -56,11 +56,12 @@ if($stmt = $link -> prepare('SELECT `name`, `password`,`department_id` FROM `sta
         echo $_POST['password']."<br><br>".$password;
 
     
-        if ($deparyment_id == "2") {
+        if ($level_id == "2") {
             header('Location: director_dashboard.php');
-        } elseif ($deparyment_id == "1") {
-            header('Location: clerical_dashboard.php');
-        } elseif ($deparyment_id == "3") {
+        } elseif ($level_id == "1") {
+             header('Location: clerical_dashboard.php');
+            // echo "IT";
+        } elseif ($level_id == "3") {
             header('Location: staff_dashboard.php');
         } else {
         echo "<h1>Login failed. Invalid username or password.</h1>";
