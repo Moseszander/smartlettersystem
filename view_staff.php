@@ -47,7 +47,7 @@ $note = new Note();
                         $info = $uploaddocs->getUploadDocsDetailsByUser($_SESSION['id']);
 
                         while ($row = mysqli_fetch_assoc($info)){
-                        ?>
+                    ?>
                         <tr>
 
                             <td><?php echo $row['id'] ?></td>

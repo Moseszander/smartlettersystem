@@ -28,6 +28,7 @@ class Uploaddocs{
         if (mysqli_num_rows($result) > 0){
             return $result;
         } else {
+            echo "kitu";
             return false;
         }
     }
