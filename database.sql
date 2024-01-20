@@ -1,3 +1,5 @@
+use `project`;
+
 CREATE TABLE department (
     department_id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
