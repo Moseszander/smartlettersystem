@@ -1,6 +1,6 @@
 use `project`;
 
-INSERT INTO `department` (`department_id`, `name`, `Head`) VALUES
+INSERT INTO `department` (`name`, `Head`) VALUES
 ('IT', 'Okoth'),
 ('HR', 'Ogutu'),
 ('Finance', 'Otieno');
