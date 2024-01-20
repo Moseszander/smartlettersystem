@@ -2,9 +2,6 @@
 require_once "../smartlettersystem/Staff.php";
 
 
-
-
-
 class Student{
     public $conn;
     

@@ -1,6 +1,10 @@
 <?php 
 include_once "../connection.php";
 
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', '1');
+
 class Document{
     public $conn;
 
@@ -21,10 +25,10 @@ class Document{
         
         $deps = $this->getDoc();
         $depts = array();
-               while($row = $deps->fetch_assoc()){
-                     $depts[] = $row;
-                 }
-                 return $depts;
+        while($row = $deps->fetch_assoc()){
+            $depts[] = $row;
+        }
+        return $depts;
 
     }
 

@@ -14,4 +14,4 @@ INSERT INTO `staffs` (`name`, `email`, `password`, `level_id`, `created_at`, `de
 ('theo', 'theo@gmail.com', '123', 2, '2023-12-31 11:27:30', 3),
 ('jess', 'jess@gmail.com', '123', 3, '2023-12-31 12:15:31', 3),
 ('moses', 'moses@gmail.com', '123', 3, '2023-12-31 12:21:20', 3),
-('wilson', 'wilson@gmail.com', '123', 1, '', 2);
+('wilson', 'wilson@gmail.com', '123', 1, '2023-12-31 12:21:20', 2);
