@@ -1,10 +1,16 @@
 <?php
-
+session_start();
 include_once "./connection.php";
 
 // Initialize variables to hold file details
 $fileDetails = "";
 $searched = false;
+    // Check if user is logged in
+    if (!isset($_SESSION['email'])) {
+        header("Location: loginpage.php");
+        exit();
+    }
+
 
 // Assuming you have the ID and Name you want to search for
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -63,6 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <header>
     <h1>File Search</h1>
+    <?php
+            require_once 'includes/nav_clerk.php';
+        ?>
 </header>
 
 <div class="container">

@@ -76,7 +76,7 @@
         }
 
         public function getNoteByUploaded_docs_id($uploaded_docs_id){
-            $sql = "SELECT * FROM `notification` WHERE `uploaded_docs_id`='$uploaded_docs_id'";
+            $sql = "SELECT * FROM `notifications` WHERE `uploaded_docs_id`='$uploaded_docs_id'";
             $result = mysqli_query($this->conn, $sql);
             // get one
             if(mysqli_num_rows($result)>0){

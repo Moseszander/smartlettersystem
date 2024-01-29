@@ -23,6 +23,32 @@ header {
     text-align: center;
     padding: 10px;
 }
+/* Style the navigation menu */
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Arrange links vertically */
+    align-items: center; /* Center links horizontally */
+}
+
+nav li {
+    margin: 5px 0;
+}
+
+/* Style the links */
+nav a {
+    text-decoration: none;
+    color: #50c878;
+    font-size: 16px;
+    transition: color 0.3s;
+}
+
+/* Change link color on hover */
+nav a:hover {
+    color: #224c30;
+}
+
 
 /* Style the container */
 .container {
@@ -55,7 +81,7 @@ input {
 
 /* Style the upload button */
 button[type="submit"] {
-    background-color: #ffffff;
+    background-color: #50c878;
     color: #0b0b0b;
     border: none;
     border-radius: 5px;
@@ -95,6 +121,6 @@ th, td {
 }
 
 th {
-    background-color: #50c878;
+    background-color: #333;
     color: #fff;
 }

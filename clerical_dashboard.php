@@ -21,6 +21,9 @@ if (!isset($_SESSION['email'])) {
 <body>
     <header>
         <h1>Letter Tracking System</h1>
+        <?php
+            require_once 'includes/nav_clerk.php';
+        ?>
       
     </header>
     <div class="container">
@@ -47,8 +50,9 @@ if (!isset($_SESSION['email'])) {
             </div>
         <div class="login-button">
             <a href="uploadfiles.php"><button>Upload File</button></a>
-            <a href="Edit.html"><button>Edit File</button></a>
-            <a href="view.php"><button>View File</button></a>
+            <a href=""><button>Edit File</button></a>
+            <a href="Upload.php"><button>View File</button></a>
+            <a href="search.php"><button>Search </button></a>
             <a href="logout.php"><button>Log Out</button></a>
        
         </div>
