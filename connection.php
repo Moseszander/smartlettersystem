@@ -4,8 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
 $servername = "localhost";
-$username = "olefa"; // Replace with your actual database username
-$password = "Wachahizo903"; // Replace with your actual database password
+$username = "root"; // Replace with your actual database username
+$password = ""; // Replace with your actual database password
 $dbname = "project";
 
 // Create connection

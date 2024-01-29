@@ -53,7 +53,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Upload PDF Document</title>
     <link rel="stylesheet" href="style/upload.css">
-<header>
+    <header>
         <h1>Letter Tracking System</h1>
         <?php
             require_once 'includes/nav_clerk.php';
@@ -62,7 +62,7 @@
     </header>
 </head>
 <body>
-</header>
+
 
     <div class="container">
         <?php
@@ -74,18 +74,18 @@
 
             <label for="source">Source Person:</label>
             <input type="text" id="source" name="source" required><br>
-
-            <label for="department">Department:</label>
-            <select name="department" id="">
-                <option value="">select department</option>
-                <?php
-                 $myinfo = $staff->getDepartments();
+            <div class="container1">
+                <label for="department">Department:</label>
+                <select name="department" id="">
+                    <option value="">select department</option>
+                        <?php
+                         $myinfo = $staff->getDepartments();
                  while ($myrow = mysqli_fetch_assoc($myinfo)){
                          echo "<option value=".$myrow['department_id'].">".$myrow['name']."</option>";
                   }
                 ?>
-            </select>
-        
+                </select>
+            </div>
 
             <label for="datereceived">Date Received:</label>
             <input type="datetime-local" id="datereceived" name="datereceived" required><br>
@@ -100,9 +100,7 @@
         </form>
     </div>
     <br>
-    <footer>
-        <p>&copy; 2023 Your Company. All rights reserved.</p>
-    </footer>
+    <?php require_once "footer.php"  ?>
 </body>
 </html>
 

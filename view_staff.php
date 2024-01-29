@@ -27,6 +27,9 @@ $note = new Note();
     <header>
         <h1>Uploaded Files</h1>
         
+        <?php
+            require_once 'includes/nav_clerk.php';
+        ?>
     </header>
     <div id="table-container">
         <table id="data-table">

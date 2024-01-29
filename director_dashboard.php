@@ -54,6 +54,7 @@
         <div class="login-button">
             <a href="view.php"><button>Assign File</button></a>
             <a href="view.php"><button>View File</button></a>
+            <a href="addstaff.php"><button>Add Staff</button></a>
             <a href="logout.php"><button>Log Out</button></a>
         </div>
         

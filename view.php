@@ -19,7 +19,7 @@ $staff = new Staff();
     <header>
         <h1>Uploaded Files</h1>
         <?php
-            require_once 'includes/nav_clerk.php';
+            require_once 'includes/nav_director.php';
         ?>
         
     </header>

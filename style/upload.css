@@ -10,7 +10,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(rgba(48, 48, 48, 0.491), rgba(255, 255, 255, 0.508)),url('../image/office.jpg') !important; 
+    background-image: linear-gradient(rgba(48, 48, 48, 0.491), rgba(255, 255, 255, 0.508)), url('../image/office.jpg') !important;
     background-size: cover;
     background-repeat: no-repeat;
     height: 100%;
@@ -22,31 +22,6 @@ header {
     color: #fff;
     text-align: center;
     padding: 10px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: column; /* Arrange links vertically */
-    align-items: center; /* Center links horizontally */
-}
-
-nav li {
-    margin: 5px 0;
-}
-
-/* Style the links */
-nav a {
-   /* text-decoration: none;*/
-    color: #50c878;
-    font-size: 16px;
-    transition: color 0.3s;
-}
-
-/* Change link color on hover */
-nav a:hover {
-    color: #224c30;
 }
 
 /* Style the container */
@@ -80,8 +55,8 @@ input {
 
 /* Style the upload button */
 button[type="submit"] {
-    background-color: #50c878;
-    color: #ffffff;
+    background-color: #ffffff;
+    color: #0b0b0b;
     border: none;
     border-radius: 5px;
     padding: 10px 20px;
@@ -100,4 +75,26 @@ footer {
     color: #fff;
     text-align: center;
     padding: 10px;
+}
+
+/* Style the table */
+.container1 {
+    width: 100%;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #50c878;
+    color: #fff;
 }
