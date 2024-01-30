@@ -2,6 +2,11 @@
 require_once "./Uploaddocs.php";
 require_once "./Staff.php";
 
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $uploaddocs = new Uploaddocs();
 $staff = new Staff();
 ?>

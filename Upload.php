@@ -24,6 +24,7 @@
                     <th>Title</th>
                     <th>File</th>
                     <th>Source Person</th>
+                    <th>Assigned Staff</th>
                     <th>Received On</th>
                 </tr>
             </thead>
@@ -70,6 +71,7 @@ function getSortedFiles($sortColumn, $sortOrder) {
             echo "<td>" . $row['title'] . "</td>";
             echo '<td><a href="' . $row['file_path'] . '" download>Download</a></td>';
             echo "<td>" . $row['source_person'] . "</td>";
+            echo "<td>" . $row['staff_id'] . "</td>";
             echo "<td>" . $row['received_at'] . "</td>";
             echo "</tr>";
         }
