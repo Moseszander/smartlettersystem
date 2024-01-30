@@ -27,9 +27,9 @@ $note = new Note();
     <header>
         <h1>Uploaded Files</h1>
         
-        <!-- <?php
-            require_once 'includes/nav_clerk.php';
-        ?> -->
+        <?php
+            require_once 'includes/nav_staff.php';
+        ?> 
     </header>
 
        
@@ -73,9 +73,12 @@ $note = new Note();
                                 ?>
                             </td>
                             <td>
-    <a href="completebutton.php?id=<?php echo $row['id']; ?>">
+    
+   <div class =login-button button> 
+        <a href="completebutton.php?id=<?php echo $row['id']; ?>">
         <button type="button" name="button" class="btn btn-danger">Completed</button>
     </a>
+    </div>
 </td>
 
                         </tr>
@@ -87,6 +90,6 @@ $note = new Note();
         </table>
 
     </div>
-
+    <?php require_once "footer.php"  ?>
 </body>
 </html>

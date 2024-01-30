@@ -44,7 +44,7 @@
         }
 
         public function createNotification($sender_id, $receiver_id, $message, $file_path, $uploaded_docs_id){
-            $sql = "INSERT INTO `notification` (`sender_id`, `receiver_id`, `message`, `file_path`, `uploaded_docs_id`) VALUES ('$sender_id', '$receiver_id', '$message', '$file_path', '$uploaded_docs_id')"; // Replace with your actual table name
+            $sql = "INSERT INTO `notifications` (`sender_id`, `receiver_id`, `message`, `file_path`, `uploaded_docs_id`) VALUES ('$sender_id', '$receiver_id', '$message', '$file_path', '$uploaded_docs_id')"; // Replace with your actual table name
             $result = mysqli_query($this->conn, $sql);
 
             if ($result){

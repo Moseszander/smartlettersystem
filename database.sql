@@ -56,5 +56,15 @@ CREATE TABLE IF NOT EXISTS notifications (
     FOREIGN KEY (uploaded_docs_id) REFERENCES uploaded_docs(id)
 );
 
+CREATE TABLE `completed` (
+  id int(11) NOT NULL,
+  title varchar(255) NOT NULL,
+  file_path varchar(255) NOT NULL,
+  source_person varchar(255) NOT NULL,
+  received_at datetime NOT NULL,
+  staff_id int(11) NOT NULL,
+ department_id int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
 
 
