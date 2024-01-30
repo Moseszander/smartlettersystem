@@ -27,10 +27,12 @@ $note = new Note();
     <header>
         <h1>Uploaded Files</h1>
         
-        <?php
+        <!-- <?php
             require_once 'includes/nav_clerk.php';
-        ?>
+        ?> -->
     </header>
+
+       
     <div id="table-container">
         <table id="data-table">
             <thead>
@@ -41,6 +43,7 @@ $note = new Note();
                     <th>Date Received</th>
                     <th>File</th>
                     <th>Comments</th>
+                    <th>Status</th>
                 </tr>
 
                 
@@ -69,6 +72,11 @@ $note = new Note();
                                     // while ($row = mysqli_fetch_assoc($info)){
                                 ?>
                             </td>
+                            <td>
+    <a href="completebutton.php?id=<?php echo $row['id']; ?>">
+        <button type="button" name="button" class="btn btn-danger">Completed</button>
+    </a>
+</td>
 
                         </tr>
 
@@ -77,6 +85,7 @@ $note = new Note();
                         ?>
             </tbody>
         </table>
+
     </div>
 
 </body>
