@@ -108,28 +108,33 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="password" name="password" required><br>
 
             <div class="container1">
-                <label for="level">Level:</label>
+                 <label for="level">Level:</label>
                 <select name="level_id" id="level_id">
                     <option value="">select level</option>
                     <?php
                         $myinfo = $level->getLevels();
-                        while ($myrow = mysqli_fetch_assoc($myinfo)){
-                            echo "<option value='".htmlspecialchars($myrow['level_id'])."'>".htmlspecialchars($myrow['name'])."</option>";
-                        }
+                        while ($myrow = mysqli_fetch_assoc($myinfo)) {
+                             $selected = (isset($_POST['level_id']) && $myrow['level_id'] == $_POST['level_id']) ? 'selected' : '';
+                                echo "<option value='" . htmlspecialchars($myrow['level_id']) . "' $selected>" . htmlspecialchars($myrow['name']) . "</option>";
+                         }
                     ?>
                 </select>
 
                 <label for="department">Department:</label>
                 <select name="department_id" id="department_id">
                     <option value="">select department</option>
-                    <?php
-                        $myinfo = $department->getDepartments();
-                        while ($myrow = mysqli_fetch_assoc($myinfo)){
-                            echo "<option value='".htmlspecialchars($myrow['department_id'])."'>".htmlspecialchars($myrow['name'])."</option>";
+                        <?php
+                         $myinfo = $department->getDepartments();
+                            while ($myrow = mysqli_fetch_assoc($myinfo)) {
+                            $selected = (isset($_POST['department_id']) && $myrow['department_id'] == $_POST['department_id']) ? 'selected' : '';
+                            echo "<option value='" . htmlspecialchars($myrow['department_id']) . "' $selected>" . htmlspecialchars($myrow['name']) . "</option>";
+                           
                         }
-                    ?>
-                </select><br><br>
-            </div>
+                         ?>
+    </select><br><br>
+</div>
+
+
 
             <button type="submit" name="upload">Add Staff</button>
         </form>

@@ -4,6 +4,7 @@ session_start();
 
 include_once "./connection.php";
 
+
 if (!isset($_SESSION['email'])) {
     header("Location: loginpage.php");
     exit();
