@@ -27,9 +27,9 @@ $note = new Note();
     <header>
         <h1>Uploaded Files</h1>
         
-        <!-- <?php
-            require_once 'includes/nav_clerk.php';
-        ?> -->
+        <?php
+            require_once 'includes/nav_staff.php';
+        ?> 
     </header>
 
        
@@ -87,6 +87,6 @@ $note = new Note();
         </table>
 
     </div>
-
+    <?php require_once "footer.php"  ?>
 </body>
 </html>
