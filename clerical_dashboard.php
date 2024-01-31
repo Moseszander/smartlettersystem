@@ -53,6 +53,7 @@ if (!isset($_SESSION['email'])) {
             <a href=""><button>Edit File</button></a>
             <a href="Upload.php"><button>View File</button></a>
             <a href="search.php"><button>Search </button></a>
+            <a href="completed.php"><button>Completed </button></a>
             <a href="logout.php"><button>Log Out</button></a>
        
         </div>

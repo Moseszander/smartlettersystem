@@ -8,7 +8,22 @@ if (session_status() == PHP_SESSION_NONE) {
 
 $uploaddocs = new Uploaddocs();
 $staff = new Staff();
+$department = new Departments($GLOBALS['link']);
+
+// Function to get the department name based on department_id
+function getDepartmentName($departmentId, $department) {
+    $result = $department->getDepartments();
+    
+    while ($deptRow = mysqli_fetch_assoc($result)) {
+        if ($deptRow['department_id'] == $departmentId) {
+            return htmlspecialchars($deptRow['name']);
+        }
+    }
+
+    return "Unknown Department";
+}
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,10 +36,30 @@ $staff = new Staff();
 <body>
     <header>
         <h1>Uploaded Files</h1>
-        <?php
-            require_once 'includes/nav_director.php';
-        ?>
+        <?php require_once 'includes/nav_director.php'; ?>
+         <?php require_once 'includes/autoassign.php'; ?>
+        <!-- <button>
+            <form method="POST" action="algorithmn.php">
+                 <button type="submit" name="button" class="btn btn-danger">AUTO ASSIGN</button>
+            </form>
+        </button> -->
     </header>
+
+    <?php
+    class Departments {
+        private $conn;
+
+        public function __construct($conn) {
+            $this->conn = $conn;
+        }
+
+        public function getDepartments() {
+            $sql = "SELECT * FROM department";
+            $result = mysqli_query($this->conn, $sql);
+            return $result;
+        }
+    }
+    ?>
 
     <div class="files">
         <?php
@@ -46,22 +81,10 @@ $staff = new Staff();
                                 <h4>Assign File </h4>
                                 <label for="">Add Note</label>
                                 <textarea name="message" id="" cols="30" rows="10" placeholder="Add Something"></textarea>
-                                
-                                <!-- Remove the Select Department dropdown -->
-<!-- <label>Select Department</label>
-<select name="assign" id="department">
-    <?php
-        // $departments = $staff->getDepartments();
-        // foreach ($departments as $dept) {
-        //     echo "<option value=".$dept['id'].">".$dept['name']."</option>";
-        // }
-    ?>
-</select> -->
 
-<!-- Display the department from the uploaded_docs table -->
-<label>Department: <?php echo $row['department_id']; ?></label>
-<input type="hidden" name="assign" value="<?php echo $row['department_id']; ?>">
-
+                                <!-- Display the department from the uploaded_docs table -->
+                                <label>Department: <?php echo getDepartmentName($row['department_id'], $department); ?></label>
+                                <input type="hidden" name="assign" value="<?php echo $row['department_id']; ?>">
 
                                 <label>Select Staff</label>
                                 <select name="assign" id="result">

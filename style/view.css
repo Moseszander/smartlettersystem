@@ -142,10 +142,12 @@ select{
 }
 
 .files .card{
-    background-color: azure;
+    background-color: #eaeaea;
+    border: 1px solid #ddd;
     margin: 20px;
     padding: 20px;
-    width: 28%;
+    width: 30%;
+    border-radius: 5px
 }
 
 .files .card form{

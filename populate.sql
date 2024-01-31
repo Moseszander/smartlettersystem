@@ -10,8 +10,15 @@ INSERT INTO `levels` (`name`, `post`, `created_at`) VALUES
 ('director', 'director', '2023-10-17 11:08:36.000000'),
 ( 'staff', 'staff', '2023-10-17 11:09:07.000000');
 
-INSERT INTO `staffs` (`name`, `email`, `password`, `level_id`, `created_at`, `department_id`) VALUES
-('theo', 'theo@gmail.com', '123', 2, '2023-12-31 11:27:30', 3),
-('jess', 'jess@gmail.com', '123', 3, '2023-12-31 12:15:31', 3),
-('moses', 'moses@gmail.com', '123', 3, '2023-12-31 12:21:20', 3),
-('wilson', 'wilson@gmail.com', '123', 1, '2023-12-31 12:21:20', 2);
+INSERT INTO `staffs` (`name`, `email`, `password`, `level_id`, `department_id`) VALUES
+('theo', 'theo@gmail.com', '123', 2, 3 ),
+('jess', 'jess@gmail.com', '123', 3, 3 ),
+('moses', 'moses@gmail.com', '123', 3, 3),
+('wilson', 'wilson@gmail.com', '123', 1, 2),
+('kimani', 'kimani@gmail.com', '123', 3, 1),
+('jose', 'jose@gmail.com', '123', 3, 1),
+('mary', 'mary@gmail.com', '123', 3, 1),
+('leah', 'leah@gmail.com', '123', 3, 2),
+('carol', 'carol@gmail.com', '123', 3, 2),
+('dennis', 'dennis@gmail.com', '123', 3, 2),
+('collo', 'collo@gmail.com', '123', 3, 3);
