@@ -21,8 +21,10 @@ class Staff{
         }
     }
 
-    public function getStaffsWhoAreStaff(){
-        $sql = "SELECT * FROM staffs where `department_id` = '3'"; // Replace with your actual table name
+
+
+    public function getStaffsWhoAreStaff($department_id){
+        $sql = "SELECT * FROM staffs WHERE `department_id` = '$department_id'";
         $result = mysqli_query($this->conn, $sql);
 
         if (mysqli_num_rows($result) > 0){
@@ -31,6 +33,17 @@ class Staff{
             return false;
         }
     }
+
+    // public function getStaffsWhoAreStaff(){
+    //     $sql = "SELECT * FROM staffs where `department_id` = '2'"; // Replace with your actual table name
+    //     $result = mysqli_query($this->conn, $sql);
+
+    //     if (mysqli_num_rows($result) > 0){
+    //         return $result;
+    //     } else {
+    //         return false;
+    //     }
+    // }
     public function getDepartments(){
         $sql = "SELECT * FROM department";
         $result = mysqli_query($this->conn, $sql);
@@ -41,6 +54,8 @@ class Staff{
             return false;
         }
     }
+
+    
 }
 
 ?>

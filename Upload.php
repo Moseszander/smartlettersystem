@@ -11,9 +11,9 @@
     <header>
         <h1>Uploaded files</h1>
 
-        <?php
+        <!-- <?php
             require_once 'includes/nav_clerk.php';
-        ?>
+        ?> -->
 
     </header>
     <div id="table-container">

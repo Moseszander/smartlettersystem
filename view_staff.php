@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 require_once "./Uploaddocs.php";
 require_once "./Staff.php";
 require_once "./Note.php";
@@ -73,10 +73,10 @@ $note = new Note();
                                 ?>
                             </td>
                             <td>
-    <a href="completebutton.php?id=<?php echo $row['id']; ?>">
-        <button type="button" name="button" class="btn btn-danger">Completed</button>
-    </a>
-</td>
+                                <a href="completebutton.php?id=<?php echo $row['id']; ?>">
+                                    <button type="button" name="button" class="btn btn-danger">Completed</button>
+                                </a>
+                            </td>
 
                         </tr>
 
