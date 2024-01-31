@@ -58,17 +58,6 @@
 
     // Check if there are any records
     if ($result->num_rows > 0) {
-        // Display table headers
-        echo "<table border='1'>
-                <tr>
-                    <th>ID</th>
-                    <th>Title</th>
-                    <th>File Path</th>
-                    <th>Source Person</th>
-                    <th>Received At</th>
-                    <th>Staff ID</th>
-                    <th>Department ID</th>
-                </tr>";
 
         // Output data from each row
         while ($row = $result->fetch_assoc()) {

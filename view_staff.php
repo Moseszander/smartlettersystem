@@ -37,7 +37,7 @@ $note = new Note();
         <table id="data-table">
             <thead>
                 <tr>
-                    <th>#</th>
+                    <th>ID</th>
                     <th>Title</th>
                     <th>Received from</th>
                     <th>Date Received</th>
@@ -73,9 +73,11 @@ $note = new Note();
                                 ?>
                             </td>
                             <td>
+                                <div class =login-button>
                                 <a href="completebutton.php?id=<?php echo $row['id']; ?>">
                                     <button type="button" name="button" class="btn btn-danger">Completed</button>
                                 </a>
+                                </div>
                             </td>
 
                         </tr>

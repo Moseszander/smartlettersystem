@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS staffs (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL,
-    password VARCHAR(10) NOT NULL,
+    password VARCHAR(255) NOT NULL,
     level_id INT NOT NULL,
     department_id INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
@@ -57,13 +57,14 @@ CREATE TABLE IF NOT EXISTS notifications (
 );
 
 CREATE TABLE `completed` (
-  id int(11) NOT NULL,
-  title varchar(255) NOT NULL,
-  file_path varchar(255) NOT NULL,
-  source_person varchar(255) NOT NULL,
-  received_at datetime NOT NULL,
-  staff_id int(11) NOT NULL,
- department_id int(11) NOT NULL
+  `id` int AUTO_INCREMENT NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `file_path` varchar(255) NOT NULL,
+  `source_person` varchar(255) NOT NULL,
+  `received_at` datetime NOT NULL,
+  `staff_id` int(11) NOT NULL,
+  `department_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 
