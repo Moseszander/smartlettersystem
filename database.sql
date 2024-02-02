@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS staffs (
     email VARCHAR(50) NOT NULL,
     password VARCHAR(255) NOT NULL,
     level_id INT NOT NULL,
-    department_id INT NOT NULL,
+    department_id INT ,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL ON UPDATE CURRENT_TIMESTAMP,
 
     FOREIGN KEY (level_id) REFERENCES levels(id),

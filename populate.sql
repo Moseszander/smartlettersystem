@@ -11,10 +11,10 @@ INSERT INTO `levels` (`name`, `post`, `created_at`) VALUES
 ( 'staff', 'staff', '2023-10-17 11:09:07.000000');
 
 INSERT INTO `staffs` (`name`, `email`, `password`, `level_id`, `department_id`) VALUES
-('theo', 'theo@gmail.com', '123', 2, 3 ),
+('theo', 'theo@gmail.com', '123', 2,  ),
 ('jess', 'jess@gmail.com', '123', 3, 3 ),
 ('moses', 'moses@gmail.com', '123', 3, 3),
-('wilson', 'wilson@gmail.com', '123', 1, 2),
+('wilson', 'wilson@gmail.com', '123', 1, ),
 ('kimani', 'kimani@gmail.com', '123', 3, 1),
 ('jose', 'jose@gmail.com', '123', 3, 1),
 ('mary', 'mary@gmail.com', '123', 3, 1),

@@ -50,7 +50,6 @@ if (!isset($_SESSION['email'])) {
             </div>
         <div class="login-button">
             <a href="uploadfiles.php"><button>Upload File</button></a>
-            <a href=""><button>Edit File</button></a>
             <a href="Upload.php"><button>View File</button></a>
             <a href="search.php"><button>Search </button></a>
             <a href="completed.php"><button>Completed </button></a>

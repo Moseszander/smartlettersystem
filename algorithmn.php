@@ -1,67 +1,87 @@
 <?php
-// Turn on error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+include_once "../connection.php";
+
+session_start();
 error_reporting(E_ALL);
+ini_set('display_errors', '1');
 
-// Include the database connection file
-require_once './connection.php';
+class Document {
+    public $conn;
 
-// Check if the 'auto_assign' button is clicked
-if (isset($_POST['auto_assign'])) {
-    // Check if 'doc_id' is set
-    if (isset($_POST['doc_id'])) {
-        $doc_id = $_POST['doc_id'];
+    public function __construct(){
+        $this->conn = $GLOBALS['link'];
+    }
 
-        // Fetch department of the document from 'uploaded_docs' table
-        $fetchDepartmentSql = "SELECT department_id FROM uploaded_docs WHERE id = ?";
-        $stmtFetchDepartment = $link->prepare($fetchDepartmentSql);
-        $stmtFetchDepartment->bind_param("i", $doc_id);
+    public function getUnassignedDocs(){
+        $sql = "SELECT * FROM uploaded_docs WHERE staff_id IS NULL";
+        $result = mysqli_query($this->conn, $sql);
 
-        if ($stmtFetchDepartment->execute()) {
-            $stmtFetchDepartment->bind_result($department_id);
-            $stmtFetchDepartment->fetch();
-            $stmtFetchDepartment->close();
+        if (mysqli_num_rows($result) > 0){
+            return $result;
+        } else {
+            return false;
+        }
+    }
 
-            if (!empty($department_id)) {
-                // Find a staff member in the specified department with the least number of work items
-                $findStaffSql = "SELECT staff_id
-                                FROM uploaded_docs
-                                WHERE department_id = ?
-                                ORDER BY RAND() -- Randomly select a staff member
-                                LIMIT 1";
+    public function assignDocumentToStaff($departmentId) {
+        // Find the staff with the least number of assigned documents in the given department
+        $sql = "SELECT id
+                FROM staffs
+                WHERE department_id = ?
+                ORDER BY RAND() -- Randomly select a staff member
+                LIMIT 1";
 
-                $stmtFindStaff = $link->prepare($findStaffSql);
-                $stmtFindStaff->bind_param("i", $department_id);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bind_param("i", $departmentId);
+        $stmt->execute();
+        $stmt->bind_result($assignedStaffId);
+        $stmt->fetch();
+        $stmt->close();
 
-                if ($stmtFindStaff->execute()) {
-                    $stmtFindStaff->bind_result($assignedStaffId);
-                    $stmtFindStaff->fetch();
-                    $stmtFindStaff->close();
+        return $assignedStaffId;
+    }
 
+    public function assignAllUnassignedDocuments() {
+        // Get all unassigned documents
+        $unassignedDocs = $this->getUnassignedDocs();
+
+        if ($unassignedDocs !== false) {
+            while ($row = mysqli_fetch_assoc($unassignedDocs)) {
+                $documentId = $row['id'];
+                $departmentId = $row['department_id'];
+
+                // Assign document to staff in the relevant department
+                $assignedStaffId = $this->assignDocumentToStaff($departmentId);
+
+                if ($assignedStaffId !== null) {
                     // Update the document with the assigned staff member
                     $updateDocumentSql = "UPDATE uploaded_docs SET staff_id = ? WHERE id = ?";
-                    $stmtUpdateDocument = $link->prepare($updateDocumentSql);
-                    $stmtUpdateDocument->bind_param("ii", $assignedStaffId, $doc_id);
+                    $stmtUpdateDocument = $this->conn->prepare($updateDocumentSql);
+                    $stmtUpdateDocument->bind_param("ii", $assignedStaffId, $documentId);
 
                     if ($stmtUpdateDocument->execute()) {
-                        echo "Document (ID: $doc_id) auto-assigned to Staff (ID: $assignedStaffId) in Department: $department_id";
+                        echo "Documents successfully assigned!<br>";
                     } else {
-                        echo "Error updating document: " . $stmtUpdateDocument->error;
+                        echo "Error updating document: " . $stmtUpdateDocument->error . "<br>";
                     }
 
                     $stmtUpdateDocument->close();
                 } else {
-                    echo "Error finding staff: " . $stmtFindStaff->error;
+                    echo "No staff found in the department for Document (ID: $documentId)<br>";
                 }
-            } else {
-                echo "Error: Document department not found.";
             }
+
+            // Redirect to view.php
+            header("Location: view.php");
+            exit();
         } else {
-            echo "Error fetching department: " . $stmtFetchDepartment->error;
+            echo "No unassigned documents found.";
         }
-    } else {
-        echo "Error: 'doc_id' not set.";
     }
 }
+
+$document = new Document();
+
+// Example: Assign all unassigned documents
+$document->assignAllUnassignedDocuments();
 ?>

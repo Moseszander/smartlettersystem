@@ -3,7 +3,7 @@ session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 
-include('connection.php');
+require_once './connection.php';
 
 function get_user_id_by_email($email){
 

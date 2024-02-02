@@ -25,21 +25,23 @@ class Staff {
     public function addStaff($name, $email, $password, $level_id, $department_id) {
         $name = mysqli_real_escape_string($this->conn, $name);
         $email = mysqli_real_escape_string($this->conn, $email);
-        $password = mysqli_real_escape_string($this->conn, $password);
-        $level = mysqli_real_escape_string($this->conn, $level_id);
-        $department = mysqli_real_escape_string($this->conn, $department_id);
+        $level_id = mysqli_real_escape_string($this->conn, $level_id);
+        $department_id = mysqli_real_escape_string($this->conn, $department_id);
 
-        $sql = "INSERT INTO staffs (name, email, password, level_id, department_id) VALUES ('$name', '$email', '$password', '$level_id', '$department_id')";
+        // Use prepared statement to prevent SQL injection
+        $stmt = $this->conn->prepare("INSERT INTO staffs (name, email, password, level_id, department_id) VALUES (?, ?, ?, ?, ?)");
+        $stmt->bind_param("ssssi", $name, $email, password_hash($password, PASSWORD_DEFAULT), $level_id, $department_id);
 
-        $result = mysqli_query($this->conn, $sql);
-
-        if ($result) {
+        if ($stmt->execute()) {
             echo "Staff member added successfully!";
         } else {
-            die("Error in SQL query: " . mysqli_error($this->conn));
+            die("Error in SQL query: " . $stmt->error);
         }
+
+        $stmt->close();
     }
 }
+
 
 class Levels {
     public function getLevels() {

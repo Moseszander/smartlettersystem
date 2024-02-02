@@ -89,7 +89,8 @@ if ($searched) {
 }
 ?>
 
-<?php require_once "footer.php"  ?>
+
 
 </body>
+<?php require_once "footer.php"  ?>
 </html>

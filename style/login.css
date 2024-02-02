@@ -13,6 +13,7 @@ body {
     background-image: linear-gradient(rgba(48, 48, 48, 0.491), rgba(255, 255, 255, 0.508)),url('../image/office.jpg') !important; 
     background-size: cover;
     background-repeat: no-repeat;
+    height: 10%;
 }
 header {
     background-color: #333;

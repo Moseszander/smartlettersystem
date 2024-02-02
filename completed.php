@@ -33,10 +33,10 @@
                 <tr>
                     <th>Document Id</th>
                     <th>Title</th>
-                    <th>File</th>
+                    
                     <th>Source Person</th>
                     <th>Assigned Staff</th>
-                    <th>Received On</th>
+                    <th>Department</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,9 +64,9 @@
             echo "<tr>
                     <td>{$row['id']}</td>
                     <td>{$row['title']}</td>
-                    <td>{$row['file_path']}</td>
+                  
                     <td>{$row['source_person']}</td>
-                    <td>{$row['received_at']}</td>
+                
                     <td>{$row['staff_id']}</td>
                     <td>{$row['department_id']}</td>
                   </tr>";
